@@ -1,4 +1,4 @@
 # Republica
 
 
-Repositório com material apra processo seletivo do República.
+Repositório com material para processo seletivo do República.
