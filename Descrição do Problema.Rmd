@@ -1,0 +1,115 @@
+---
+title: 
+author:
+date: 
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+setwd("C:\\Users\\46853970\\Documents\\Republica")
+
+
+rem_servidor_federal <- read.csv2("5233-liquidosexoraca.csv", encoding = "UTF-8")
+
+
+library(tidyverse)
+library(forcats)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(ggrepel)
+library(tinytex)
+
+library(plotly) 
+```
+
+<style>
+
+
+
+a:link {
+  color: #ffffff;
+  font-size: 25px
+}
+
+a:{
+  color: #ffffff;
+  font-size: 25px
+}
+
+a:visited{
+  color:#ffffff;
+}
+a:hover{
+  color:orange;
+}
+
+a:active{
+  color:#ffffff;
+}
+
+.titulos{font-size: 32px;
+line-height: 1.0;
+text-align: center;
+color: #215A60
+
+}
+
+.titulos2{font-size: 18px;
+line-height: 1.0;
+text-align: left;
+color: #215A60
+
+}
+.corpo{font-size: 14px;
+text-align: justify;  
+line-height: 1.5;
+
+}
+</style>
+
+<br/><br/> 
+
+<p class="titulos">  Processo Seletivo de Analista de Dados - República.Org  </p>
+
+<br/><br/>
+
+
+<p class="titulos2"> Enunciado: </p>
+
+<b>"Baseado na tabela em CSV com a série histórica 'Remuneração líquida média mensal no Executivo civil federal ativo, por sexo e raça (1999-2020)', disponível no site do Atlas do Estado Brasileiro (IPEA), comente uma ou duas tendências da evolução da remuneração destes servidores de acordo com seu sexo e/ou raça."</b>
+<br/><br/>
+
+<br/><br/>
+
+
+<p class="titulos2"> Resposta: </p>
+
+A tabela de remuneração líquida média mensal do Executivo civil federal em situação ativa, revela que a valorização salarial de homens brancos manteve-se mais elevada do que a de homens e mulheres negras e de mulheres brancas desde o começo da série histórica em 1999. Esse quadro de desigualdade não diminuiu com o passar do tempo e com o crescimento de políticas de cotas  
+
+.. lei de cotas em concursos públicos em 2014
+<br/><br/>
+
+
+
+```{r echo=FALSE, results='asis',out.width = "1000px"}
+# Conhecendo a base de dados
+
+load("base.Rdata")
+x =  ggplot( rem_servidor_federal , aes(x=ano,y=liquido,colour = cod_graf))+ 
+  geom_line(size = 1.0)+geom_point(size=2.0)+ylab("")+ theme_classic()+ylab ("Remuneração líquida mensal")+xlab ("Ano")+
+  scale_x_continuous(breaks = c(1999:2020))
+
+# x = x %>% style(hoverinfo = "x")
+
+
+
+ggplotly(x)  
+  
+
+
+```
+
