@@ -46,11 +46,9 @@ min(rem_servidor_federal[rem_servidor_federal$cod_graf == "Homem Negro",]$liquid
 min(rem_servidor_federal[rem_servidor_federal$cod_graf == "Homem Branco",]$liquido)
 
 
-dcast(rem_servidor_federal, Sexo~Raça, value.var='liquido',mean)
-
 # taxa de crescimento ano a ano, em relação a média total anterior, em relação a própria categoria
 
-
+## Calcular diferença entre grupos ano a ano
 
 
 
@@ -65,7 +63,19 @@ model <-  glm(liquido ~ Sexo + Raça, data = rem_servidor_federal)
 
 # Gráfico de tendências 
 
-ggplot(rem_servidor_federal , aes(x=ano,y=liquido,fill = cod_graf))+geom_line(aes(color = cod_graf))
+library(plotly)  
+
+save(rem_servidor_federal,file="base.Rdata")
+
+x =  ggplot( rem_servidor_federal , aes(x=ano,y=liquido,colour = cod_graf))+ 
+  geom_line(size = 1.0)+geom_point(size=2.5)+ylab("")+ theme_classic()+ylab ("Remuneração líquida mensal")+xlab ("Ano")+
+  scale_x_continuous(breaks = c(1999:2020))
+
+# x = x %>% style(hoverinfo = "x")
 
 
 
+ggplotly(x)  
+  
+  
+ 
