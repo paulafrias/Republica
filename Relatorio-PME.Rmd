@@ -1,0 +1,1543 @@
+---
+title: 
+author:
+date: 
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+setwd("C:\\Users\\46853970\\Documents\\Monitoramento PME\\Metas")
+
+load("Metas.Rdata")
+
+library(tidyverse)
+library(forcats)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(ggrepel)
+library(tinytex)
+```
+
+<style>
+
+
+
+a:link {
+  color: #ffffff;
+  font-size: 25px
+}
+
+a:{
+  color: #ffffff;
+  font-size: 25px
+}
+
+a:visited{
+  color:#ffffff;
+}
+a:hover{
+  color:orange;
+}
+
+a:active{
+  color:#ffffff;
+}
+
+.titulos{font-size: 24px;
+line-height: 1.0;
+text-align: left;
+color: #215A60
+
+}
+
+.titulos2{font-size: 18px;
+line-height: 1.0;
+text-align: left;
+color: #215A60
+
+}
+.corpo{font-size: 14px;
+text-align: justify;  
+line-height: 1.5;
+
+}
+</style>
+
+
+<br/><br/> 
+<br/><br/> 
+
+ <p style = "font-size: 32px;
+text-align: center;  
+line-height: 1.0;color:  #215A60">  Monitoramento do Plano Municipal de Educação do Rio de Janeiro </p>
+
+<br/><br/> 
+<br/><br/> 
+
+
+<div class="corpo">
+
+O Plano Municipal de Educação da cidade do Rio de Janeiro foi instituído pela Lei Municipal nº 6362, de 28 de maio de 2018 e ele que define as Metas para a educação municipal nos próximos dez anos. 
+<br/><br/>
+ <p style = "font-size: 18px;
+text-align: center;  
+line-height: 1.0;color: #AAAAAA">  Metas </p>
+
+</div>
+
+
+
+
+<table>
+<tbody>
+
+<tr>
+
+
+<th style="padding-left: 2px; padding-right: 2px;background-color:#ffffff">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta1"> 01</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta2"> 02</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta3"> 03</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta4"> 04</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta5"> 05</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta6"> 06</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta7"> 07</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta8"> 08</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta9"> 09</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta10"> 10</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta11"> 11</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta12"> 12</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta13"> 13</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta14"> 14</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta15"> 15</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta16"> 16</a></th>
+<th style="padding-left: 2px; padding-right: 2px">  </th>
+<th style="padding-left: 10px; padding-right: 10px;border-radius: 60px;background-color:#215A60"><a href="#meta17"> 17</a></th>
+<th style="padding-left: 2px; padding-right: 2px"></th>
+</tr>
+</tbody>
+</table> 
+
+
+
+
+
+<br/><br/>
+<div class="titulos"> Metodologia: </div>
+<br/><br/>
+
+<div class="corpo">
+
+O monitoramento do PME é feito por meio do acompanhamento de 38 indicadores distribuídos entre 17 das 21 metas estipuladas no plano.Para qualificar o monitoramento do progresso em relação às metas estabelecidas no Plano
+Municipal de educação, foram desenvolvidas metas intermediárias anuais para os
+indicadores.
+Adaptando a Metodologia utilizada para o estabelecimento das metas intermediárias para a
+trajetória do Ideb no Brasil, Estados, Municípios e Escolas , foi possível calcular o aumento 1
+anual necessário para que as metas estabelecidas sejam cumpridas ao final da vigência deste
+plano.
+Para projetar as metas dos indicadores educacionais de monitoramento concordamos com o
+primeiro postulado.
+
+(P1) estabelecido para a aplicação da metodologia ao IDEB:
+
+<i>Para a projeção do Ideb, assumiu-se que:
+
+<li>P1: As trajetórias do Ideb, para o Brasil e para todas as redes, têm o comportamento de
+uma função Logística. O gráfico a seguir ilustra o comportamento esperado para a trajetória
+do Ideb ao longo dos anos; ou seja, para um dado ‘esforço’ obtêm-se uma melhora cada vez
+menor do indicador.</li></i>
+<br/><br/>
+
+
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Figura 1: Comportamento Esperado para a Trajetória do IDEB ao longo dos anos  </p>
+
+<img src="R:/DPE/PROJETOS/MONITORAMENTO PME/Imagens/figura1.png">
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Cálculo das metas intermediárias: </b></span></u></summary>
+<br/><br/>
+O cálculo das metas intermediárias do IDEB se dá pela seguinte equação: 
+<br/><br/>
+
+
+<span style="font-size: 32px">
+
+
+$ideb_{it}$ = $\frac{10}{1+e^{-(ln(\frac{ideb_{i0}}{10-ideb_{i0}})+\gamma_i * t)}}$
+</span>
+
+<br/><br/>
+
+Adaptando a equação acima, podemos generalizá-la para que possamos replicar a mesma
+metodologia ao cálculo de metas intermediárias de indicadores (<i>x</i>) de escalas diferentes da do
+IDEB.
+
+<br/><br/>
+<span style="font-size: 24px">
+$x_{t}$ = $\frac{x_{max}}{1+e^{-(ln(\frac{x_{0}}{x_{max}-x_{0}})+\gamma_i * t)}}$
+</span>
+<br/><br/>
+
+Em que: 
+
+$x_t$: Valor da meta intermediária para o ano <i>t</i>
+
+$x_0$: Valor inicial do indicador (<i>t</i> = 0)
+
+$\gamma$: Esforço individual
+
+<i>t</i>: Tempo em anos, desde 0 até o tempo limite para a realização da meta
+
+$x_{max}$: Valor Máximo do indicador <i>x</i>
+
+<br/><br/>
+Reorganizando a equação acima, é possível calcular o esforço necessário para que a meta seja
+atingida em um tempo limite 𝑇.
+<br/><br/>
+<span style="font-size: 24px">
+$\gamma$ = $\frac{ln(\frac{x_t}{x_{max}-x_T})- ln(\frac{x_0}{x_{max}-x_0})}{T}$
+</span>
+<br/><br/>
+Realizado o monitoramento dos indicadores para o ano de 2018, será conhecido o Valor
+inicial do indicador $x_{0}$ , tornando possível o cálculo das metas intermediárias para o
+cumprimento da meta final em 2028.
+
+
+
+</details>
+<br/><br/>
+
+
+</div>
+
+<a class="custom-anchor" id="meta1"></a>
+<br/><br/>
+ <div class="titulos"> Meta 1: Educação Infantil </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+  Universalizar, até o segundo ano de vigência deste Plano, a educação infantil
+na pré-escola para as crianças de quatro e cinco anos de idade e ampliar a oferta de
+educação infantil em creches para crianças até três anos, de forma a atender cinquenta
+por cento da demanda no prazo de três anos e universalizar a oferta em até oito anos
+de vigência deste Plano.  </b>
+
+</div>
+<br/><br/>
+
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 1: </b>Percentual da população de 4 e 5 anos que frequenta a escola.</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{População\ de\  4\ e\ 5\ anos\ que\ frequenta\ a\ escola}{População\ de\ 4\ e\ 5\ anos\ de\ idade}$</p>
+<p><b>Meta:</b> 100%
+<p><b>Fonte:</b> Censo da Educação Básica e PNADc </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 2: </b>Percentual da população de 0 a 3 anos que frequenta a escola/creche</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{População\ de\  0\ a\ 3\ anos\ que\ frequenta\ a\ escola}{População\ de\ 0\ a\ 3\ anos\ de\ idade}$</p>
+<p><b>Meta:</b> 50%
+<p><b>Fonte:</b> Censo da Educação Básica e PNADc </div>
+
+</details>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 1: Indicadores da Meta 1 observados até o momento: </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta1 %>%  mutate(I1M1 =paste0(format(round(I1M1*100,2),nsmall = 2),"%"),
+  I2M1 =paste0(format(round(I2M1*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M1,I2M1) %>% 
+  rename("Percentual da população de 4 a 5 anos que frequenta a escola/creche"=I1M1, "Percentual da população de 0 a 3 anos que frequenta a escola/creche"=I2M1, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+
+
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 1: Percentual da população de 4 a 5 anos que frequenta a escola/creche  </p>
+```{r echo=FALSE, results='asis'}
+ggplot( Meta1 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M1, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta1 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M1, label=paste0(format(round(I1M1*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+
+```
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 2: Percentual da população de 0 a 3 anos que frequenta a escola/creche  </p>
+
+
+```{r echo=FALSE, results='asis'}
+
+ggplot( Meta1 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M1, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta1 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M1, label=paste0(format(round(I2M1*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+<br/><br/>
+
+<a class="custom-anchor" id="meta2"></a>
+ <div class="titulos"> Meta 2: Ensino Fundamental </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+  Universalizar o Ensino Fundamental de nove anos para toda a população de
+seis a quatorze anos e garantir que pelo menos noventa e cinco por cento dos alunos
+concluam essa etapa na idade recomendada, até o último ano de vigência deste PME;  </b>
+
+</div>
+<br/><br/>
+
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 1: </b>Percentual da população de 6 a 14 anos que frequentam ou concluíram o ensino fundamental</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{População\ de\  6\ a\ 14\ anos\ que\ frequenta\ a\ escola}{População\ de\ 6\ a\ 14\ anos\ de\ idade}$</p>
+<p><b>Meta:</b> 100%
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 2: </b>Percentual da população de 16 anos com pelo menos o EF concluído</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{População\ de\  16\ anos\ de\ idade\ que\ concluiu\ pelo\ menos\ o\ Ensino\ Fundamental}{População\ de\ 16\ anos\ de\ idade}$</p>
+<p><b>Meta:</b> 95%
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+<br/><br/>
+
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 2: Indicadores da Meta 2 observados </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta2 %>%  mutate(I1M2 =paste0(format(round(I1M2*100,2),nsmall = 2),"%"),
+  I2M2 =paste0(format(round(I2M2*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M2,I2M2) %>% 
+  rename("Percentual da população de 6 a 14 anos que frequentam ou concluíram o ensino fundamental"=I1M2, "Percentual da população de 16 anos com pelo menos o EF concluído"=I2M2, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 3: Percentual da população de 6 a 14 anos que frequentam ou concluíram o ensino fundamental  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta2 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M2, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta2 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M2, label=paste0(format(round(I1M2*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 4: Percentual da população de 16 anos com pelo menos o EF concluído </p>
+```{r echo=FALSE, results='asis'}
+
+ggplot( Meta2 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M2, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta2 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M2, label=paste0(format(round(I2M2*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+
+<br/><br/>
+
+<a class="custom-anchor" id="meta3"></a>
+ <div class="titulos"> Meta 3: Ensino Médio </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+Ampliar o atendimento escolar para toda a população de quinze a dezessete
+anos e elevar a taxa líquida de matrículas no Ensino Médio para oitenta e cinco por
+cento, até o final do período de vigência deste PME.  </b>
+
+</div>
+<br/><br/>
+
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 1: </b>Percentual da população de 15 a 17 anos que frequenta a escola ou já concluiu a educação básica</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{População\ de\  15\ a\ 17\ anos\ que\ frequenta\ a\ escola\ ou\ já\ concluiu\ a\ educação\ básica}{População\ de\ 15\ a\ 17\ anos\ de\ idade}$</p>
+<p><b>Meta:</b> 100%
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 2: </b>Percentual da população de 15 a 17 anos que frequenta o EM ou já concluiu a educação básica</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{População\ de\  15\ a\ 17\ anos\ que\ frequenta\ o\ Ensino\ Médio\ ou\ já\ concluiu\ a\ educação\ básica}{População\ de\ 15\ a\ 17\ anos\ de\ idade}$</p>
+<p><b>Meta:</b> 85%
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+<br/><br/>
+
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 3: Indicadores da Meta 3 observados </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta3 %>%  mutate(I1M3 =paste0(format(round(I1M3*100,2),nsmall = 2),"%"),
+  I2M3 =paste0(format(round(I2M3*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M3,I2M3) %>% 
+  rename("Percentual da população de 15 a 17 anos que frequenta a escola ou já concluiu a educação básica"=I1M3, "Percentual da população de 15 a 17 anos que frequenta o EM ou já concluiu a educação básica"=I2M3, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 5: Percentual da população de 15 a 17 anos que frequenta a escola ou já concluiu a educação básica  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta3 %>% filter(status=="Observado") %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M3, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta3 %>% filter(status=="Observado") %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M3, label=paste0(format(round(I1M3*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 6: Percentual da população de 15 a 17 anos que frequenta o EM ou já concluiu a educação básica</p>
+```{r echo=FALSE, results='asis'}
+
+ggplot( Meta3 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M3, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta3 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M3, label=paste0(format(round(I2M3*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+
+<br/><br/>
+
+<br/><br/>
+<a class="custom-anchor" id="meta4"></a>
+ <div class="titulos"> Meta 4: Inclusão </div>
+ 
+ <div class="corpo">
+
+<b>
+<br/><br/>
+
+Universalizar, durante o prazo de vigência deste Plano, para a população com
+deficiência e altas habilidades/superdotação, a partir de zero ano, o acesso à Educação
+Básica e ao atendimento educacional especializado, preferencialmente na rede regular
+de ensino, das salas de recursos multifuncionais, classes especiais, escolas ou
+serviços especializados, públicos ou conveniados, além de garantir a oferta do
+profissional de apoio escolar, o Agente de Apoio à Educação Especial, instrutores e
+tradutores/intérpretes de Língua Brasileira de Sinais – Libras;  </b>
+
+<br/><br/>
+
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 1: </b>Percentual da população de 4 a 17 anos de idade com deficiência que frequenta a escola</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{População\ de\ 4\ a\ 17\ anos\ que\ não\ consegue\ de\ modo\ algum\ ou\ tem\ grande\ dificuldade\ para\ enxergar,ouvir,caminhar\  e/ou\ subir\ degraus\ ou\ ainda\ possui\ alguma\ deficiência\ mental/intelectual\ permanente\ que\ limite\ as\ suas\ atividades\ habituais\ e\ que\ frequenta\ a\ escola}{População\ de \ 4\ a\ 17\ anos\ que\ não\ consegue\ de\ modo\ algum\ ou\ tem\ grande\ dificuldade\ para\ enxergar,ouvir,caminhar\ e/ou\ subir\ degraus\ ou\ ainda\ possui\ alguma\ deficiência\ mental/intelectual\ permanente\ que\ limite\ as\ suas\ atividades\ habituais}$</p>
+<p><b>Meta:</b> 100%
+<p><b>Fonte:</b>  Censo Demográfico </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 2: </b>Percentual da população de 4 a 17 anos com deficiência, TGD, altas habilidades ou superdotação que estudam em classes comuns da educação básica</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Quantidade\ de\ matrículas\ em\ classes\ comuns\ do\ ensino\ regular\ ou\ EJA\ da\ educação\ básica\ de\ alunos\ de\ 4\ a\ 17\ anos\ de\ idade\ com\ deficiência,transtornos\ globais\ do\ desenvolvimento\ e\ altas\ habilidades\ ou\ superdotação}{Total\ de\ matrículas\ de\ alunos\ de\ 4\ a\ 17\ anos\ de\ idade\ com\ deficiência,trantornos\ globais\ do\ desenvolvimento\ e\ altas\ habilidades\ ou\ superdotação}$</p>
+<p><b>Meta:</b> 100%
+<p><b>Fonte:</b>  Censo da Educação Básica </div>
+
+</details>
+
+<br/><br/>
+
+ 
+<span style= "color:red; font-weight:bold">Problema de cálculo: </span> O indicador 1 só pode ser calculado com os dados do Censo Demográfico. 
+
+
+<br/><br/>
+
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 4: Indicadores da Meta 4 observados </p>
+
+```{r echo=FALSE, results='asis'}
+
+kable(Meta4 %>%  mutate(I2M4 =paste0(format(round(I2M4*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I2M4) %>% 
+  rename( "Percentual da população de 4 a 17 anos com deficiência, TGD, altas habilidades ou superdotação que estudam em classes comuns da educação básica"=I2M4, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+
+```
+
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 7: Percentual da população de 4 a 17 anos com deficiência, TGD, altas habilidades ou superdotação que estudam em classes comuns da educação básica  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta4 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M4, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta4 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M4, label=paste0(format(round(I2M4*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+
+
+
+</div>
+ 
+ 
+ <br/><br/>
+<a class="custom-anchor" id="meta5"></a>
+ <div class="titulos"> Meta 5: Alfabetização Infantil </div>
+ 
+<br/><br/>
+  <div class="corpo">
+
+<b>
+
+Alfabetizar todas as crianças, no máximo, até o final do terceiro ano do
+Ensino Fundamental.  </b>
+
+</div>
+
+<br/><br/>
+
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 1: </b>Estudantes com proficiência insuficiente em leitura (nível 1 da escala de proficiência)</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+
+<p><b>Meta:</b> 0%
+<p><b>Fonte:</b>  ANA </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 2: </b>Estudantes com proficiência insuficiente em escrita (níveis 1, 2 e 3 da escala de proficiência)</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+
+<p><b>Meta:</b> 0%
+<p><b>Fonte:</b>  ANA </div>
+
+</details>
+<br/><br/>
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 3: </b>Estudantes com proficiência insuficiente em matemática (níveis 1 e 2 da escala de proficiência)</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+
+<p><b>Meta:</b> 0%
+<p><b>Fonte:</b>  ANA </div>
+
+</details>
+
+
+
+<span style= "color:red; font-weight:bold">Problema de cálculo: </span> A Avaliação Nacional de  Alfabetização foi descontinuada em 2016.
+   
+
+        
+
+ 
+<br/><br/>
+ <a class="custom-anchor" id="meta6"></a>
+ <div class="titulos"> Meta 6: Educação Integral </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+Oferecer Educação em tempo integral em, no mínimo, cinquenta por cento
+das escolas públicas, de forma a atender, pelo menos, quarenta e cinco por cento dos
+alunos da Educação Básica até 2020.  </b>
+
+</div>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 1: </b>Percentual de alunos da educação básica pública em tempo integral</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Número\ de\ matrículas\ públicas\ de\ alunos\ que\ permanecem\ no\ mínimo\ 7\ horas\ diárias\ em\ atividades\ escolares}{Número\ de\ matrículas\ em\ escolas\ públicas}$</p>
+
+<p><b>Meta:</b> 25%
+<p><b>Fonte:</b>  Censo da Educação Básica </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 2: </b>Percentual de escolas públicas com pelo menos um aluno que permanece no mímino 7 horas diárias em atividades escolares</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Número\ de\ escolas\ públicas\ com\ pelo\ menos\ um\ aluno\ que\ permanece\ no\ mínimo\ 7\ horas\ diárias\ em\ atividades\ escolares}{Número\ total\ de\ escolas\ públicas}$</p>
+<p><b>Meta:</b> 50%
+<p><b>Fonte:</b>  Censo da Educação Básica </div>
+
+</details>
+
+<br/><br/>
+
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 5: Indicadores da Meta 6 observados </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta6 %>%  mutate(I1M6 =paste0(format(round(I1M6*100,2),nsmall = 2),"%"),
+  I2M6 =paste0(format(round(I2M6*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M6,I2M6) %>% 
+  rename("Percentual de alunos da educação básica pública em tempo integral"=I1M6, "Percentual de escolas públicas com pelo menos um aluno que permanece no mímino 7 horas diárias em atividades escolares"=I2M6, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 8: Percentual de alunos da educação básica pública em tempo integral  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta6  %>% filter(status=="Observado") %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M6, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta6  %>% filter(status=="Observado") %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M6, label=paste0(format(round(I1M6*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 9: Percentual de escolas públicas com pelo menos um aluno que permanece no mímino 7 horas diárias em atividades escolares </p>
+```{r echo=FALSE, results='asis'}
+
+ggplot( Meta6  %>% filter(status=="Observado") %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M6, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta6  %>% filter(status=="Observado") %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M6, label=paste0(format(round(I2M6*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+
+
+
+
+<br/><br/>
+ <a class="custom-anchor" id="meta7"></a>
+ <div class="titulos"> Meta 7: Qualidade da educação básica (IDEB) </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+ Fomentar a qualidade da Educação Básica em todas as etapas e
+modalidades, com melhoria do fluxo escolar e da aprendizagem de modo a considerar
+que a qualidade social da educação deverá ser atingida com a garantia da
+aprendizagem significativa dos estudantes, com a valorização dos profissionais da
+educação, com a melhoria da infraestrutura das unidades escolares e ainda atingir as
+seguintes médias nacionais para o Índice de Desenvolvimento da Educação Básica:  </b>
+
+</div>
+<br/><br/>
+
+```{r echo=FALSE, results='asis'}
+
+ideb <- data.frame(IDEB = c("Anos iniciais do Ensino Fundamental", "Anos Finais do Ensino Fundamental", "Ensino Médio"), `2015` = c(5.2,4.7,4.3), `2017`= c(5.5,5.0,4.7), `2019` = c(5.7,5.2,5.0),`2021` = c(6.0,5.5,5.2),check.names=FALSE )
+
+kable(ideb, align = "lccrr")%>%
+kable_styling(position = "center")
+
+```
+
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 1: </b>Média do IDEB nos anos iniciais do EF</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> <i> Nota padronizada na Prova Brasil x Taxa de rendimento </i> </p>
+
+<p><b>Meta:</b> 6.0 (para 2021)
+<p><b>Fonte:</b>  Censo da Educação Básica e Prova Brasil </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 2: </b>Média do IDEB nos anos finais do EF</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> <i> Nota padronizada na Prova Brasil x Taxa de rendimento </i> </p>
+<p><b>Meta:</b> 5.5 (para 2021)
+<p><b>Fonte:</b>  Censo da Educação Básica e Prova Brasil </div>
+
+</details>
+
+<br/><br/>
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 3: </b>Média do IDEB no EM</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> <i> Nota padronizada na Prova Brasil x Taxa de rendimento </i> </p>
+<p><b>Meta:</b> 5.2 (para 2021)
+<p><b>Fonte:</b>  Censo da Educação Básica e Prova Brasil </div>
+
+</details>
+
+
+<br/><br/>
+ 
+ <p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 6: Indicadores da Meta 7 observados </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta7 %>% filter(status== "Observado") %>% select(ano,I1M7,I2M7, I3M7) %>%  
+  rename("Média do IDEB nos anos iniciais do EF"=I1M7, "Média do IDEB nos anos finais do EF"=I2M7,
+         "Média do IDEB no EM"=I3M7,"Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 10: Média do IDEB nos anos iniciais do EF  </p>
+```{r echo=FALSE, results='asis'}
+
+ggplot( Meta7 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M7, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+
+ scale_x_continuous(breaks=c(2017:2021))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta7 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M7, label=I1M7,fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 11: Média do IDEB nos anos finais do EF </p>
+```{r echo=FALSE, results='asis'}
+
+ggplot( Meta7 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M7, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+
+ scale_x_continuous(breaks=c(2017:2021))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta7 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M7, label=I2M7,fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+ <br/><br/>
+ 
+  <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 12: Média do IDEB no EM </p>
+```{r echo=FALSE, results='asis'}
+
+ggplot( Meta7 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I3M7, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+
+ scale_x_continuous(breaks=c(2017:2021))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta7 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I3M7, label=I3M7,fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+ 
+ <br/><br/>
+ <a class="custom-anchor" id="meta8"></a>
+
+<div class="titulos"> Meta 8: elevação da escolaridade/diversidade </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+ Elevar a escolaridade média da população de quinze anos ou mais, de modo
+a alcançar, no mínimo, doze anos de estudo ao longo da vigência deste Plano,
+principalmente nas áreas de menor escolaridade e igualar a escolaridade média
+independente de raça ou crença.  </b>
+
+</div> 
+ <br/><br/>
+
+
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 1: </b>Escolaridade média da população de 18 a 29 anos de idade</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Soma\ dos\ anos\ de\ estudos\ das\  pessoas\ na\ faixa\ etária\ de\ 18\ a\ 29\ anos\ de\ idade}{População\ de\ de\ 18\ a\ 29\ anos\ de\ idade}$</p>
+
+<p><b>Meta:</b> 12
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 2: </b>Escolaridade média da população de 18 a 29 anos de idade residente na zona rural</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Soma\ dos\ anos\ de\ estudos\ das\  pessoas\ residentes\ na\ área\ rural\ com\ 18\ a\ 29\ anos\ de\ idade}{População\ de\  18\ a\ 29\ anos\ de\ idade\ residentes\ na\ área\ rural}$</p>
+<p><b>Meta:</b> 12
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+
+<br/><br/>
+
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 3: </b>Escolaridade média da população de 18 a 29 anos de idade pertencente aos 25% dos mais pobres</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Soma\ dos\ anos\ de\ estudos\ das\  pessoas\ entre\ os \ 25%\ mais\ pobres\ na\ faixa\ etária\ de\ 18\ a\ 29\ anos\ de\ idade}{População\ de\ de\ 18\ a\ 29\ anos\ de\ idade\ entre\ os\ 25%\ mais\ pobres}$</p>
+
+<p><b>Meta:</b> 12
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 4: </b>Razão entre a escolaridade média de negros e não negros na faixa etária de 18 a 29 anos</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{\frac{Soma\ dos\ anos\ de\ estudo\ de\  negros\ na\ faixa\ etária\ de\ 18\ a\ 29\ anos\ de\ idade}{População\ de\ negros\ de\ 18\ a\ 29\ anos\ de\ idade}}{\frac{Soma\ dos\ anos\ de\ estudo\ de\  não-negros\ na\ faixa\ etária\ de\ 18\ a\ 29\ anos\ de\ idade}{População\ de\ não-negros\ de\ 18\ a\ 29\ anos\ de\ idade}}$</p>
+<p><b>Meta:</b> 100%
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+
+<br/><br/>
+
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 5: </b>Percentual da população de 18 a 29 anos com menos de 12 anos de escolaridade</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Número\ de\  pessoas\ na\ faixa\ etária\ de\ 18\ a\ 29\ anos\ de\ idade\ com\ menos\ de\ 12\ anos\ de\ escolaridade}{População\ de\ 18\ a\ 29\ anos\ de\ idade}$</p>
+
+<p><b>Meta:</b> 0%
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 6: </b>Percentual da população de 18 a 29 anos residente no campo com menos de 12 anos de escolaridade</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Número\ de\  pessoas\ residentes\ na\ área\ rural\ na\ faixa\ etária\ de\ 18\ a\ 29\ anos\ de\ idade\ com\ menos\ de\ 12\ anos\ de\ escolaridade}{População\ residente\ na\ área\ rural\ de\ 18\ a\ 29\ anos\ de\ idade}$</p>
+<p><b>Meta:</b> 0%
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+
+<br/><br/>
+
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 7: </b>Percentual da população de 18 a 29 anos entre os 25% mais pobres com menos de 12 anos de escolaridade</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Número\ de\  pessoas\ entre\ os \ 25%\ mais\ pobres\ na\ faixa\ etária\ de\ 18\ a\ 29\ anos\ de\ idade\ com\ menos\ de\ 12\ anos\ de\ escolaridade}{População\ de\ 18\ a\ 29\ anos\ de\ idade\ entre\ os \ 25%\ mais\ pobres\}$</p>
+
+<p><b>Meta:</b> 0%
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+<br/><br/>
+
+<details>
+<summary><b><u><span style="color:#084d6e"> Indicador 8: </b>Percentual da população negra de 18 a 29 anos com menos de 12 anos de escolaridade</span></u></summary>
+
+<div style = "font-size: 11px;
+;color: #AAAAAA">
+
+<p></p>
+<p><b>Forma de Cálculo:</b> $\frac{Número\ de\  pessoas\ negras\ na\ faixa\ etária\ de\ 18\ a\ 29\ anos\ de\ idade\ com\ menos\ de\ 12\ anos\ de\ escolaridade}{População\ negra\ de\ 18\ a\ 29\ anos\ de\ idade}$</p>
+<p><b>Meta:</b> 0%
+<p><b>Fonte:</b>  PNADc </div>
+
+</details>
+
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 7: Indicadores da Meta 8 observados </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta8 %>% mutate (I1M8 = format(round(I1M8,2),nsmall = 2),
+                I3M8 = format(round(I3M8,2),nsmall = 2),
+                I4M8 = format(round(I4M8,2),nsmall = 2),
+        I5M8 =paste0(format(round(I5M8*100,2),nsmall = 2),"%"),
+  I7M8 =paste0(format(round(I7M8*100,2),nsmall = 2),"%"),
+  I8M8 =paste0(format(round(I8M8*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M8,I3M8,I4M8,I5M8,I7M8,I8M8) %>% 
+  rename("Escolaridade média da população de 18 a 29 anos de idade"=I1M8, "Escolaridade média da população de 18 a 29 anos de idade pertencente aos 25% dos mais pobres"=I3M8,"Razão entre a escolaridade média de negros e não negros na faixa etária de 18 a 29 anos"=I4M8,
+         "Percentual da população de 18 a 29 anos com menos de 12 anos de escolaridade"=I5M8,
+         "Percentual da população de 18 a 29 anos entre os 25% mais pobres com menos de 12 anos de escolaridade"=I7M8,
+         "Percentual da população negra de 18 a 29 anos com menos de 12 anos de escolaridade"=I8M8,
+         "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 13: Escolaridade média da população de 18 a 29 anos de idade  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta8 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M8, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta8 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M8, label=format(round(I1M8,2),nsmall=2),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 14: Escolaridade média da população de 18 a 29 anos de idade pertencente aos 25% dos mais pobres </p>
+```{r echo=FALSE, results='asis'}
+ggplot( Meta8 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I3M8, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta8 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I3M8, label=format(round(I3M8,2),nsmall=2),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+
+```
+
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 15: Razão entre a escolaridade média de negros e não negros na faixa etária de 18 a 29 anos </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta8 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I4M8, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta8 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I4M8, label=format(round(I4M8,2),nsmall=2),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 16: Percentual da população de 18 a 29 anos com menos de 12 anos de escolaridade </p>
+```{r echo=FALSE, results='asis'}
+ggplot( Meta8 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I5M8, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta8 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I5M8, label=paste0(format(round(I5M8*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+
+```
+<br/><br/>
+
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 17: Percentual da população de 18 a 29 anos entre os 25% mais pobres com menos de 12 anos de escolaridade </p>
+```{r echo=FALSE, results='asis'}
+ggplot( Meta8 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I7M8, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta8 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I7M8, label=paste0(format(round(I7M8*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+
+```
+<br/><br/>
+
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 18: Percentual da população negra de 18 a 29 anos com menos de 12 anos de escolaridade </p>
+```{r echo=FALSE, results='asis'}
+ggplot( Meta8 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I8M8, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta8 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I8M8, label=paste0(format(round(I8M8*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+
+```
+
+
+<br/><br/>
+
+<a class="custom-anchor" id="meta9"></a>
+ <div class="titulos"> Meta 9: Alfabetização de Jovens e Adultos </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+ Elevar a taxa de alfabetização da população com quinze anos ou mais para
+noventa e três inteiros e cinco décimos por cento até o final da vigência deste PME e
+reduzir em cinquenta por cento o analfabetismo absoluto e a taxa de analfabetismo
+funcional.  </b>
+
+</div>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 8: Indicadores da Meta 9 observados </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta9 %>%  mutate(I1M9 =paste0(format(round(I1M9*100,2),nsmall = 2),"%"),
+  I2M9 =paste0(format(round(I2M9*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M9,I2M9) %>% 
+  rename("Taxa de alfabetização da população de 15 anos ou mais de idade"=I1M9, "Taxa de analfabetismo funcional de pessoas com 15 anos ou mais de idade"=I2M9, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+
+
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 19: Taxa de alfabetização da população de 15 anos ou mais de idade  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta9 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M9, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta9 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M9, label=paste0(format(round(I1M9*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 20: Taxa de analfabetismo funcional de pessoas com 15 anos ou mais de idade  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta9 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M9, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta9 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M9, label=paste0(format(round(I2M9*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+
+<br/><br/>
+ <a class="custom-anchor" id="meta10"></a>
+ <div class="titulos"> Meta 10: EJA Integrada </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+ Ampliar a oferta de matrículas de Educação de Jovens e Adultos - EJA, no
+Ensino Fundamental, na forma integrada e/ou subsequente à educação profissional,
+durante a vigência deste Plano.  </b>
+
+</div>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 9: Indicador da Meta 10 observado </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta10 %>%  mutate(I1M10 =paste0(format(round(I1M10*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M10) %>% 
+  rename("Percentual de matrículas da educação de jovens e adultos na forma integrada à educação profissional"=I1M10, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+<p style = "font-size: 11px;
+;color: #AAAAAA">Fonte:  Censo da Educação Básica </p>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 21: Percentual de matrículas da educação de jovens e adultos na forma integrada à educação profissional  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta10 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M10, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta10 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M10, label=paste0(format(round(I1M10*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+
+<br/><br/>
+ <a class="custom-anchor" id="meta11"></a>
+ <div class="titulos"> Meta 11: Educação Profissional </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+
+ Triplicar as matrículas da Educação Profissional Técnica de Nível Médio,
+assegurando a qualidade da oferta e pelo menos cinquenta por cento da expansão no
+segmento público. 
+</b>
+
+</div>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 10: Indicadores da Meta 11 observados </p>
+```{r echo=FALSE, results='asis',warning = FALSE}
+
+kable(Meta11 %>%  mutate(I1M11 =format(round(I1M11,0),big.mark="."),
+  I2M11 =format(round(I2M11,0),big.mark=".")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M11,I2M11) %>% 
+  rename("Número absoluto de matrículas em Ensino Profissional e Técnico (EPT) de nível médio"=I1M11, "Número absoluto de matrículas em Ensino Profissional e Técnico (EPT) de nível médio na rede pública"=I2M11, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+<p style = "font-size: 11px;
+;color: #AAAAAA">Fonte:  PNADc </p>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 22: Número absoluto de matrículas em Ensino Profissional e Técnico (EPT) de nível médio  </p>
+
+```{r echo=FALSE, results='asis',warning = FALSE}
+ggplot( Meta11 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M11, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ 
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta11 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M11, label=format(round(I1M11,0),big.mark="."),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 23: Número absoluto de matrículas em Ensino Profissional e Técnico (EPT) de nível médio na rede pública </p>
+```{r echo=FALSE, results='asis',warning = FALSE}
+
+ggplot( Meta11 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M11, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ 
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta11 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M11, label=format(round(I2M11,0),big.mark="."),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+
+
+<br/><br/>
+
+<br/><br/>
+ <a class="custom-anchor" id="meta12"></a>
+ <div class="titulos"> Meta 12: Educação Superior </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+Elevar a taxa bruta de matrícula na Educação Superior para cinquenta por
+cento e a taxa líquida para trinta e três por cento da população de dezoito a vinte e
+quatro anos, assegurada a qualidade da oferta e expansão para, pelo menos, quarenta
+por cento das novas matrículas, no segmento público.   </b>
+
+</div>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 11: Indicadores da Meta 12 observados </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta12 %>%  mutate(I1M12 =paste0(format(round(I1M12*100,2),nsmall = 2),"%"),
+  I2M12 =paste0(format(round(I2M12*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M12,I2M12) %>% 
+  rename(" Taxa bruta de matrículas na graduação (TBM)"=I1M12, "Taxa líquida de escolarização na graduação (TLE)"=I2M12, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+<p style = "font-size: 11px;
+;color: #AAAAAA">Fonte:  PNADc </p>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 24:  Taxa bruta de matrículas na graduação (TBM)  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta12 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M12, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta12 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M12, label=paste0(format(round(I1M12*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 24: Taxa líquida de escolarização na graduação (TLE) </p>
+```{r echo=FALSE, results='asis'}
+
+ggplot( Meta12 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M12, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta12 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M12, label=paste0(format(round(I2M12*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+<br/><br/>
+ <a class="custom-anchor" id="meta13"></a>
+ <div class="titulos"> Meta 13: Qualidade da Educação Superior </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+Elevar a qualidade da Educação Superior pela ampliação da proporção de
+mestres e doutores do corpo docente em efetivo exercício no conjunto do Sistema de
+Educação Superior para setenta e cinco por cento sendo, do total, no mínimo, trinta e
+cinco por cento doutores.    </b>
+
+</div>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 12: Indicadores da Meta 13 observados </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta13 %>%  mutate(I1M13 =paste0(format(round(I1M13*100,2),nsmall = 2),"%"),
+  I2M13 =paste0(format(round(I2M13*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M13,I2M13) %>% 
+  rename("Percentual de docentes com mestrado ou doutorado na educação superior"=I1M13, "Percentual de docentes com doutorado na educação superior"=I2M13, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+<p style = "font-size: 11px;
+;color: #AAAAAA">Fonte:  PNADc </p>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 25:  Percentual de docentes com mestrado ou doutorado na educação superior  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta13 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M13, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta13 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M13, label=paste0(format(round(I1M13*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+<br/><br/>
+ <p style = "font-size: 12px;
+;color: #AAAAAA">  
+Gráfico 26: Percentual de docentes com doutorado na educação superior </p>
+```{r echo=FALSE, results='asis'}
+
+ggplot( Meta13 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I2M13, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta13 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I2M13, label=paste0(format(round(I2M13*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+```
+ <br/><br/>
+ <a class="custom-anchor" id="meta14"></a>
+<div class="titulos"> Meta 14: Pós-graduação </div>
+ 
+<br/><br/>
+
+<div class="corpo">
+
+<b>
+ Incentivar a ampliação do número de matrículas na pós-graduação stricto
+sensu, com a garantia de licença remunerada, assim como a consideração de efetivo
+exercício nos termos do inciso XI, art. 64, da Lei nº 94, de 14 de março de 1979.   </b>
+
+</div> 
+ <br/><br/>
+
+ <span style= "color:green; font-weight:bold"> Indicadores Em Elaboração </span>
+ As informações com os municípios dos programas de pós-graduação estão em processo de extração. 
+
+<br/><br/>
+ <a class="custom-anchor" id="meta15"></a>
+<div class="titulos"> Meta 15: Profissionais de educação </div>
+ <br/><br/>
+
+<div class="corpo">
+
+<b>
+ Garantir, em regime de colaboração com o Estado e a União, política
+municipal de formação dos profissionais da educação de que tratam os incisos I, II e III
+do caput do art. 61 da Lei n° 9.394, de 20 de dezem bro de 1996, possibilitando que todos os profissionais da educação básica possuam formação de nível superior e acesso aos cursos de especialização, mestrado, doutorado e pós-doutorado.    </b>
+
+</div> 
+ <br/><br/>
+
+ <span style= "color:green; font-weight:bold"> Indicadores Em Elaboração </span>
+  
+
+
+
+<br/><br/>
+<a class="custom-anchor" id="meta16"></a>
+<div class="titulos"> Meta 16: Formação </div>
+ <br/><br/>
+
+<div class="corpo">
+
+<b>
+ Formar, em nível de pós-graduação, cinquenta por cento dos professores da
+Educação Básica, até o último ano de vigência deste PME, e garantir a todos os
+profissionais da Educação Básica formação continuada em sua área de atuação,
+considerando as necessidades, demandas e contextualizações dos sistemas de
+ensino.    </b>
+
+
+  </div> 
+  
+  <p style = "font-size: 12px;
+;color: #AAAAAA">Tabela 13 : Indicador da Meta 16 observado </p>
+```{r echo=FALSE, results='asis'}
+
+kable(Meta16 %>%  mutate(I1M10 =paste0(format(round(I1M16*100,2),nsmall = 2),"%")) %>% 
+  filter(status== "Observado") %>% select(ano,I1M16) %>% 
+  rename("Percentual de professores da educação básica com pós-graduação lato sensu ou stricto sensu"=I1M16, "Ano"= ano), align = "lccrr",digits = 2
+) %>%
+kable_styling(position = "center")
+```
+<p style = "font-size: 11px;
+;color: #AAAAAA">Fonte:  PNADc </p>
+<br/><br/>
+
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 27: Percentual de professores da educação básica com pós-graduação lato sensu ou stricto sensu  </p>
+
+```{r echo=FALSE, results='asis'}
+ggplot( Meta16 %>% rename("Status"=status,"Ano"=ano),aes(x = Ano, y = I1M16, colour=Status))+ 
+  geom_line(size = 1.3)+geom_point(size=2.5)+ylab("")+ theme_classic()+scale_color_manual(values = c("#5ab4ac","#d8b365"))+ scale_y_continuous(labels = scales::percent)+
+ scale_x_continuous(breaks=c(2018:2028))+scale_fill_manual(values = c("#5ab4ac","#d8b365"))+
+  ggrepel::geom_label_repel(
+  data = Meta16 %>% rename("Status"=status,"Ano"=ano),
+  aes(x = Ano, y = I1M16, label=paste0(format(round(I1M16*100,2),nsmall=2),"%"),fill=Status),color="white",show.legend = FALSE,
+  size=3,nudge_x=0.2, hjust=0)
+
+```
+
+<br/><br/>
+
+
+ <a class="custom-anchor" id="meta17"></a>
+<div class="titulos"> Meta 17: Valorização dos profissionais do magistério </div>
+ <br/><br/>
+
+<div class="corpo">
+
+<b>
+ Valorizar os profissionais das Redes Públicas da Educação Básica, a fim de
+equiparar o rendimento médio dos demais profissionais com escolaridade equivalente,
+até o final do sexto ano da vigência deste PME.    </b>
+
+</div> 
+ <br/><br/>
+
+ <span style= "color:green; font-weight:bold"> Indicadores Em Elaboração </span>
+  
+
+  </div> 
+
+<br/><br/>
