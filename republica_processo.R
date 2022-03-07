@@ -1,12 +1,16 @@
+
+install.packages("kableExtra")
+install.packages("tidyverse")
+install.packages("reshape2")
+install.packages("plotly")  
+
 library(kableExtra)
 library(tidyverse)
 library(reshape2)
-
-# Definindo diretório
-
-setwd("C:\\Users\\46853970\\Documents\\Republica")
+library(plotly) 
 
 
+# Lendo a base
 rem_servidor_federal <- read.csv2("5233-liquidosexoraca.csv", encoding = "UTF-8")
 
 # Conhecendo a base de dados
@@ -20,13 +24,15 @@ dim(rem_servidor_federal)
 ## Resolvendo o problema de raça e sexo na mesma coluna
 
 rem_servidor_federal$cod_graf <- rem_servidor_federal$sexo_raça #manter código para grafico
-rem_servidor_federal <- rem_servidor_federal %>%  separate(sexo_raça, c('Sexo', 'Raça'))
+
+rem_servidor_federal <- rem_servidor_federal %>%  separate(sexo_raça, c('Sexo', 'Raça')) # Fazer uma coluna para cada variável
 
 # Conferindo categorias das variáveis sexo e raça: 
 
 table(rem_servidor_federal$Sexo,rem_servidor_federal$Raça)
 
 # Unificar as flexões de gênero da variável raça
+
 
 rem_servidor_federal$Raça <- ifelse(rem_servidor_federal$Raça %in% c("Branca","Branco"),"Branca","Negra")
 
@@ -46,36 +52,34 @@ min(rem_servidor_federal[rem_servidor_federal$cod_graf == "Homem Negro",]$liquid
 min(rem_servidor_federal[rem_servidor_federal$cod_graf == "Homem Branco",]$liquido)
 
 
+## Médias de cada grupo
+
+mean(rem_servidor_federal[rem_servidor_federal$cod_graf == "Mulher Negra",]$liquido)
+mean(rem_servidor_federal[rem_servidor_federal$cod_graf == "Mulher Branca",]$liquido)
+mean(rem_servidor_federal[rem_servidor_federal$cod_graf == "Homem Negro",]$liquido)
+mean(rem_servidor_federal[rem_servidor_federal$cod_graf == "Homem Branco",]$liquido)
+
+
+
+
 # taxa de crescimento ano a ano, em relação a média total anterior, em relação a própria categoria
 
-## Calcular diferença entre grupos ano a ano
+
+homem_branco = rem_servidor_federal %>% filter(cod_graf=="Homem Branco") %>% mutate(taxa_cresc = (liquido - lag(liquido))/(lag(liquido))*100)
+homem_negro = rem_servidor_federal %>% filter(cod_graf=="Homem Negro") %>% mutate(taxa_cresc = (liquido - lag(liquido))/(lag(liquido))*100)
+mulher_branca = rem_servidor_federal %>% filter(cod_graf=="Mulher Branca") %>% mutate(taxa_cresc = (liquido - lag(liquido))/(lag(liquido))*100)
+mulher_negra = rem_servidor_federal %>% filter(cod_graf=="Mulher Negra") %>% mutate(taxa_cresc = (liquido - lag(liquido))/(lag(liquido))*100)
 
 
+# Juntando os grupos
+rem_servidor_federal <- rbind(homem_branco,
+                              homem_negro,
+                              mulher_branca,
+                              mulher_negra)
 
 
-
-# Descrição dos dados
-
-# Média por raça
-
-
-model <-  glm(liquido ~ Sexo + Raça, data = rem_servidor_federal)
-
-# Gráfico de tendências 
-
-library(plotly)  
+# Salvando em Rdata
 
 save(rem_servidor_federal,file="base.Rdata")
 
-x =  ggplot( rem_servidor_federal , aes(x=ano,y=liquido,colour = cod_graf))+ 
-  geom_line(size = 1.0)+geom_point(size=2.5)+ylab("")+ theme_classic()+ylab ("Remuneração líquida mensal")+xlab ("Ano")+
-  scale_x_continuous(breaks = c(1999:2020))
 
-# x = x %>% style(hoverinfo = "x")
-
-
-
-ggplotly(x)  
-  
-  
- 
