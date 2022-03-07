@@ -1,6 +1,6 @@
 ---
 title: 
-author:
+author: 
 date: 
 output: html_document
 ---
@@ -8,8 +8,6 @@ output: html_document
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(echo = TRUE)
-
-setwd("C:\\Users\\46853970\\Documents\\Republica")
 
 
 rem_servidor_federal <- read.csv2("5233-liquidosexoraca.csv", encoding = "UTF-8")
@@ -74,7 +72,7 @@ line-height: 1.5;
 <br/><br/> 
 
 <p class="titulos">  Processo Seletivo de Analista de Dados - República.Org  </p>
-
+<p class="titulos"> Paula Frias </p>
 <br/><br/>
 
 
@@ -83,15 +81,39 @@ line-height: 1.5;
 <b>"Baseado na tabela em CSV com a série histórica 'Remuneração líquida média mensal no Executivo civil federal ativo, por sexo e raça (1999-2020)', disponível no site do Atlas do Estado Brasileiro (IPEA), comente uma ou duas tendências da evolução da remuneração destes servidores de acordo com seu sexo e/ou raça."</b>
 <br/><br/>
 
+
+
+
+ <p class="corpo">  * É importante ressaltar que todos os dados de renda estão corrigidos de acordo com as taxas de fevereiro de 2020.  </p>
+
 <br/><br/>
-
-
 <p class="titulos2"> Resposta: </p>
 
-A tabela de remuneração líquida média mensal do Executivo civil federal em situação ativa, revela que a valorização salarial de homens brancos manteve-se mais elevada do que a de homens e mulheres negras e de mulheres brancas desde o começo da série histórica em 1999. Esse quadro de desigualdade não diminuiu com o passar do tempo e com o crescimento de políticas de cotas  
+<p class="titulos2"> 1ª ANÁLISE </p>
 
-.. lei de cotas em concursos públicos em 2014
 <br/><br/>
+
+<p class="corpo"> A tabela de remuneração líquida média mensal do Executivo civil federal em situação ativa, revela que a valorização salarial de homens brancos manteve-se mais elevada do que a de homens e mulheres negras e de mulheres brancas desde o começo da série histórica em 1999. Esse quadro de desigualdade não diminuiu com o passar do tempo e as linhas de crescimento e declínio da renda possuem um comportamento bem próximo, mostrando que não houve uma melhora significativa para alavancar a renda dos outros três grupos em comparação ao grupo de homens brancos. </p>
+
+
+
+ <p class="corpo">  No primeiro gráfico é possível ver o comportamento da renda ao longo da série histórica e no segundo gráfico é possível ver a média dos 20 anos para cada um dos grupos, revelando que a média de homens branco é 52,71%  maior que a de mulheres negras. </p>
+
+
+ <p class="corpo">  Essa desigualdade é explícita também quando olhamos para os mínimos e máximos de cada grupo. Enquanto o mínimo de renda mensal média de homens brancos foi de  R$ 5690,00, em 2000, o máximo de mulheres negras foi de 
+R$ 6335,00, em 2014. </p>
+
+
+ <p class="corpo">  Em 2020, último ano da série, mulheres negras foram o grupo que mais perderam renda em comparação ao ano anterior (menos 3,01%) e mulheres brancas foram as que menos perderam ( - 2,80%). </p>
+
+
+<p class="corpo">  Enquanto não houverem iniciativas compensatórias de renda e políticas afirmativas de mobilidade social para pessoas negras e mulheres, a tendência seguirá a mesma dos últimos 20 anos. </p>
+
+<br/><br/>
+
+<br/><br/>
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 1: Remuneração líquida média mensal do Executivo civil federal em situação ativa por raça e sexo de 1999 a 2020  </p>
 
 
 
@@ -99,17 +121,77 @@ A tabela de remuneração líquida média mensal do Executivo civil federal em s
 # Conhecendo a base de dados
 
 load("base.Rdata")
-x =  ggplot( rem_servidor_federal , aes(x=ano,y=liquido,colour = cod_graf))+ 
+x =  ggplot( rem_servidor_federal %>% mutate(Ano = ano,Valor=liquido,Grupos = fct_relevel(cod_graf, 
+                                                                      "Homem Branco", "Mulher Branca", "Homem Negro", 
+                                                                      "Mulher Negra")), aes(x=Ano,y=Valor,colour = Grupos))+ 
   geom_line(size = 1.0)+geom_point(size=2.0)+ylab("")+ theme_classic()+ylab ("Remuneração líquida mensal")+xlab ("Ano")+
-  scale_x_continuous(breaks = c(1999:2020))
-
-# x = x %>% style(hoverinfo = "x")
-
+  scale_x_continuous(breaks = c(1999:2020))+scale_y_continuous(labels = scales::dollar_format(prefix="R$",big.mark = ".",
+                                                                                               decimal.mark = ","))
 
 
-ggplotly(x)  
+
+ ggplotly(x, tooltip = c("x","y")) 
   
 
 
 ```
+
+<br/><br/>
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 2: Média da Remuneração líquida média mensal do Executivo civil federal em situação ativa por raça e sexo entre 1999 e 2020  </p>
+
+
+```{r echo=FALSE, results='asis',out.width = "1000px", warning= FALSE, message=FALSE}
+
+w = ggplot(data= rem_servidor_federal %>% mutate(Valor=liquido,Grupos = fct_relevel(cod_graf, 
+                                                                      "Homem Branco", "Mulher Branca", "Homem Negro", 
+                                                                      "Mulher Negra")) , 
+ aes(x=Grupos, y=Valor,colour = Grupos)) + geom_bar(aes(fill = Grupos),position = "dodge", stat = "summary", fun.y = "mean")+
+theme_classic()+ylab ("Remuneração Média Mensal")+xlab ("Grupos")+scale_y_continuous(labels = scales::dollar_format(prefix="R$",big.mark = ".",decimal.mark = ","))
+           
+           
+ ggplotly(w, tooltip = c("y")) 
+
+
+```
+
+<p class="titulos2"> 2ª ANÁLISE </p>
+<br/><br/>
+
+<p class="corpo"> Como dito na primeira análise, as taxas de crescimento e declínio em relação ao ano anterior observado segue uma tendência parecida entre os grupos. 
+As políticas afirmativas que foram criadas ao longo da primeira década do século e foram consolidadas em 2014 na inserção das cotas para acesso ao serviço público ainda não tiveram efeito para mudar esse cenário. </p>
+
+<p class="corpo">Entretanto, quando observamos as taxas de crescimentos ano a ano, como no gráfico 3, percebe-se que a maior taxa foi entre mulheres brancas no ano de 2009 (crescimento de 18,55% em relação ao ano anterior), seguido de mulheres negras no mesmo ano (crescimento de 17,82%). A taxa de crescimento de mulheres negras manteve-se como a mais alta em relação aos outros grupos entre os anos de 2009 a 2013. Nesse ano de 2009, onde todos os grupos tiveram uma taxa maior que 14%, Homens Negros tiveram o menor pico. </p>
+
+<p class="corpo">De 2006 para 2007 e de 2018 para 2019 foram os anos com a maior desigualdade entre a taxa de crescimento entre homens brancos e mulheres negras. Entretanto, no primeiro caso ambos os grupos cresceram, já no segundo apenas homens brancos tiveram uam taxa de crescimento positiva. </p>
+
+<p class="corpo">Um caminho a ser investigado a partir desses dados é o motivo da alavancada da renda de mulheres negras enquanto homens negros possuem um crescimento mais tímido. Isso pode ser visto a partir de modelos que analisem os efeitos das políticas afirmativas controlando os efeitos por raça e gênero. É importante pensar até que ponto as as políticas públicas afirmativas estão interseccionando gênero e raça e buscando produzir uma igualdade salarial para todos os grupos. </p>
+
+
+
+<br/><br/>
+<p style = "font-size: 12px;
+;color: #AAAAAA">Gráfico 3: Taxa de Crescimento ano a ano da remuneração líquida média mensal do Executivo civil federal em situação ativa por raça e sexo de 1999 a 2020  </p>
+
+```{r echo=FALSE, results='asis',out.width = "1000px",warning= FALSE, message=FALSE}
+
+
+y =  ggplot( rem_servidor_federal %>% mutate(Ano = ano,Taxa = round(taxa_cresc,2),Grupos = fct_relevel(cod_graf, 
+                                                                                              "Homem Branco", "Mulher Branca", "Homem Negro", 
+                                                                                              "Mulher Negra")), aes(x=Ano,y=Taxa,colour = Grupos))+ 
+  geom_line(size = 1.0)+geom_point(size=2.5)+ylab("")+ theme_classic()+ylab ("Taxa de Crescimento")+xlab ("Ano")+
+  scale_x_continuous(breaks = c(1999:2020))+ geom_hline(yintercept = 0, color = "black")
+
+
+
+ggplotly(y, tooltip = c("x","y")) 
+  
+
+
+```
+
+
+<br/><br/>
+
+<p><b>Fonte:</b> Atlas do Estado Brasileiro (IPEA) </div>
 
